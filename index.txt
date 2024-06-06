@@ -1,0 +1,14 @@
+
+
+
+Program29               Logical and (&&)                Checking if the number is in the range
+Program30                                               Generating ticket amount when given the age
+Used                                 Description
+Program31               use of Modulus                  Checking if the Number is divisible by 4
+Program32               use of For loop                 Printing the Numbers upto given Number
+Program33                                               Printing the Numbers upto the Half of the given number
+Program34-38            Use of For loop                 Programs related to for loop
+Program39               For loop, Mod operator          Checking perfect Number
+Program40               For loop, Mod operator          Checking perfect Number with Filter
+Program41               For loop, Mod operator          Checking perfect Number with Updator
+Program42               For loop and Mod operator       Checking Prime number
