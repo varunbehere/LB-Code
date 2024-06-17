@@ -6,7 +6,7 @@ void Display(int iNo){
   if (i <= iNo){
     cout << "*"<< endl;
     i++;
-    Display(iNo);
+    Display(iNo   );
   }
 }
 int main (){

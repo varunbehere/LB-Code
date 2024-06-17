@@ -11,7 +11,7 @@ void Display( int iNo ){
 
 int main (){
   int iValue = 0;
-  cout << "Enter a number : ";
+  cout << "Enter a number : ";    
   cin >> iValue;
 
   Display (iValue);

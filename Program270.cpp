@@ -3,10 +3,9 @@ using namespace std;
 void Display(){
   int i = 0;
   i = 1;
-  if (i <= 4){
+  while (i <= 4){
     cout << "*"<< endl;
     i++;
-    Display()
   }
 }
 int main (){

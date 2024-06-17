@@ -2,7 +2,7 @@
 using namespace std;
 
 void Display(int iNo ){
-  while (iNo>=0){
+  while (iNo>=0 ){
     cout<< iNo<<endl;
     iNo--;
   }
