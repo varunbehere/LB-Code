@@ -97,6 +97,9 @@ void DeleteLast (PPNODE First){
 }
 void InsertAtPos (PPNODE First, int No, int iPos){
   int iLength = 0;
+  PNODE newn = NULL;
+  PNODE temp = NULL;
+  int i = 0;
   iLength = Count(*First);
   if (iPos < 1 && iPos > (iLength + 1)){
     printf("Invalid Positions\n");
@@ -109,7 +112,17 @@ void InsertAtPos (PPNODE First, int No, int iPos){
     InsertLast(First, No);
   }
   else {
+    newn = (PNODE) malloc (sizeof (NODE));
 
+    newn -> data = No;
+    newn -> next =NULL;
+
+    temp = *First;
+    for (i = 1; i < (iPos-1); i++){
+      temp = temp->next;
+    }
+    newn -> next = temp -> next;
+    temp -> next = newn;
   }
 }
 void DeleteAtPos (PPNODE First, int iPos){
@@ -120,10 +133,10 @@ void DeleteAtPos (PPNODE First, int iPos){
     return;
   }
   if (iPos == 1){
-    DeleteFirst(First,No);
+    DeleteFirst(First);
   }
   else if (iPos == iLength ){
-    DeleteLast(First, No);
+    DeleteLast(First);
   }
   else {
 
@@ -142,25 +155,22 @@ void Display (PNODE First){                   // Time Complexity: O(n)
 int main (){
   PNODE Head = NULL;
   int iRet = 0;
-  InsertFirst(&Head, 100);
-  InsertFirst(&Head, 90);
-  InsertFirst(&Head, 80);
-  Display (Head);
-  iRet = Count(Head);
-  printf("Total Nodes: %d\n", iRet );
+  InsertFirst(&Head, 51);
+  InsertFirst(&Head, 21);
+  InsertFirst(&Head, 11);
+  // Display (Head);
+  // iRet = Count(Head);
+  // printf("Total Nodes: %d\n", iRet );
 
-  InsertLast(&Head, 110);
-  InsertLast(&Head, 120);
-  InsertLast(&Head, 130);
+  InsertLast(&Head, 101);
+  InsertLast(&Head, 111);
+  InsertLast(&Head, 121);
+  InsertLast(&Head, 151);
   Display (Head);
-  iRet = Count(Head);
-  printf("Total Nodes: %d\n", iRet );
 
-  DeleteFirst(&Head);
+  InsertAtPos(&Head, 105, 5);
   Display(Head);
 
-  DeleteLast(&Head);
-  Display(Head);
 
   return 0;
 }
