@@ -171,6 +171,5 @@ int main (){
   InsertAtPos(&Head, 105, 5);
   Display(Head);
 
-
   return 0;
 }
