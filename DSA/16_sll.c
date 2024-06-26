@@ -1,5 +1,3 @@
-//Program to revise / practise
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -49,15 +47,6 @@ void InsertLast (PPNODE First, int No){         // Time Complexity : O(n)
   }
 }
 
-int Count (PNODE First){                      // Time Complexity : O(n)
-  int iCnt = 0;
-  while (First != NULL){
-    iCnt ++;
-    First = First -> next;
-  }
-  return iCnt;
-}
-
 void DeleteFirst (PPNODE First){
   PNODE temp = NULL;
 
@@ -95,6 +84,16 @@ void DeleteLast (PPNODE First){
     temp->next = NULL;
   }
 }
+
+int Count (PNODE First){                      // Time Complexity : O(n)
+  int iCnt = 0;
+  while (First != NULL){
+    iCnt ++;
+    First = First -> next;
+  }
+  return iCnt;
+}
+
 void InsertAtPos (PPNODE First, int No, int iPos){
   int iLength = 0;
   PNODE newn = NULL;
@@ -125,7 +124,6 @@ void InsertAtPos (PPNODE First, int No, int iPos){
     temp -> next = newn;
   }
 }
-
 void DeleteAtPos (PPNODE First, int iPos){
   int iLength = 0,i = 0;
 
@@ -155,7 +153,7 @@ void DeleteAtPos (PPNODE First, int iPos){
     }
 
     temp2 = temp1->next;
-    
+
     temp1->next = temp2->next;
     free (temp2);
   }
@@ -184,10 +182,17 @@ int main (){
   InsertLast(&Head, 111);
   InsertLast(&Head, 121);
   InsertLast(&Head, 151);
-  Display (Head);
+  // Display (Head);
 
   InsertAtPos(&Head, 105, 5);
   Display(Head);
+  iRet = Count(Head);
+  printf("No. of Nodes: %d\n",iRet );
+
+  DeleteAtPos(&Head, 5);
+  Display(Head);
+  iRet = Count(Head);
+  printf("No. of Nodes: %d \n",iRet );
 
   return 0;
 }
