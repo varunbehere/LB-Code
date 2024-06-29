@@ -58,6 +58,7 @@ void InsertFirst(PPNODE First, PPNODE Last, int No){
   (*Last) -> next = *First;
 }
 
+
 void InsertLast(PPNODE First, PPNODE Last, int No){
   PNODE newn = NULL;
 
