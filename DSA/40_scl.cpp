@@ -6,6 +6,7 @@ struct node {
   struct node * next;
 };
 
+
 typedef struct node NODE;
 typedef struct node * PNODE;
 
