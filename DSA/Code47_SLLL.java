@@ -25,6 +25,10 @@ class SinglyLL{
     System.out.println("null");
   }
 
+  public int Count(){
+    return iCount;
+  }
+
   public void InsertFirst (int iNo){
     node newn = null;
 
@@ -67,33 +71,55 @@ class SinglyLL{
       System.out.println("Already Empty");
       return;
     }
-    else if (First.next == null ){
-      delete (First);
-      First = null;
+    else{
+      First = First.next;
+      iCount--;
+    }
+  }
+
+  public void DeleteLast(){
+    if (First == null){
+      System.out.println("Already Empty");
+      return;
     }
     else{
       node temp = First;
-      First = First.next;
-      delete(temp);
+      while (temp.next.next != null){
+        temp = temp.next;
+      }
+      temp.next = null;
+      iCount--;
     }
-    iCount--;
   }
-
 }
-
 
 class Code47_SLLL{
   public static void main (String args[]){
     SinglyLL obj = new SinglyLL();
+    int iRet = 0;
 
     obj.InsertFirst(101);
     obj.InsertFirst(51);
     obj.InsertFirst(21);
     obj.InsertFirst(11);
-
     obj.Display();
-    obj.InsertLast(111);
+    iRet = obj.Count();
+    System.out.println("Total Nodes: "+iRet+"\n");
 
-        obj.Display();
+    obj.InsertLast(111);
+    obj.Display();
+    iRet = obj.Count();
+    System.out.println("Total Nodes: "+iRet+"\n");
+
+    obj.DeleteFirst();
+    obj.Display();
+    iRet = obj.Count();
+    System.out.println("Total Nodes: "+iRet+"\n");
+
+    obj.DeleteLast();
+    obj.Display();
+    iRet = obj.Count();
+    System.out.println("Total Nodes: "+iRet+"\n");
+
   }
 }
