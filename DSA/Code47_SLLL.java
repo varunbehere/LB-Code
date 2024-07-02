@@ -82,6 +82,9 @@ class SinglyLL{
       System.out.println("Already Empty");
       return;
     }
+    else if (First.next == null){
+      First = null;
+    }
     else{
       node temp = First;
       while (temp.next.next != null){
