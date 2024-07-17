@@ -5,7 +5,7 @@ int Addition( int iNo ){
   static int iSum = 0, iCounter = 1;
   if (iCounter <= iNo){
     iSum = iSum + iCounter;
-    iCounter++;
+    mkd++;
     Addition(iNo);
   }
   return iSum;

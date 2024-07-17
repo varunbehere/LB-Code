@@ -52,7 +52,7 @@ class Queue {
       while (temp != null){
         System.out.print(temp.data+ "   ");
         temp = temp.next;
-      }
+      } 
       System.out.println();
     }
     public int Count(){
