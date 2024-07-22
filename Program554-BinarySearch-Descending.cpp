@@ -14,6 +14,8 @@ class ArrayX{
     void Display ();
     bool LinearSearch(T Value);
     bool BidirectionalSearch(T Value);
+    bool BinarySearch(T Value);
+    
 };
 
 template <class T>
@@ -70,6 +72,29 @@ bool ArrayX<T> :: BidirectionalSearch (T Value){
   }
   return bFlag;
 }
+template <class T>
+bool ArrayX<T> :: BinarySearch (T Value){
+
+  int iStart = 0, iEnd = 0;
+  iEnd = iSize - 1;
+  bool bFlag = false;
+
+  while (iStart <= iEnd ){
+    int iMid = iStart + ((iEnd - iStart) / 2);
+    if (Arr[iMid] == Value){
+      bFlag = true;
+      break;
+    }
+    else if (Value > Arr[iMid]){
+      iEnd = iMid - 1;
+    }
+    else if (Value < Arr [iMid]){
+      iStart = iMid + 1;
+    }
+  }
+  return bFlag;
+
+}
 
 
 int main (){
@@ -88,7 +113,8 @@ int main (){
   cin >>No;
 
   // bRet  = aobj->LinearSearch(No);
-  bRet = aobj -> BidirectionalSearch(No);
+  // bRet = aobj -> BidirectionalSearch(No);
+  bRet = aobj -> BinarySearch(No);
   if (bRet == true){
     cout<<"Found"<<endl;
   }

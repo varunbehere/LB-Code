@@ -14,6 +14,8 @@ class ArrayX{
     void Display ();
     bool LinearSearch(T Value);
     bool BidirectionalSearch(T Value);
+    bool BinarySearch(T Value);
+    void BubbleSort();
 };
 
 template <class T>
@@ -70,11 +72,46 @@ bool ArrayX<T> :: BidirectionalSearch (T Value){
   }
   return bFlag;
 }
+template <class T>
+bool ArrayX<T> :: BinarySearch (T Value){
+
+  int iStart = 0, iEnd = 0;
+  iEnd = iSize - 1;
+  bool bFlag = false;
+
+  while (iStart <= iEnd ){
+    int iMid = iStart + ((iEnd - iStart) / 2);
+    if (Arr[iMid] == Value){
+      bFlag = true;
+      break;
+    }
+    else if (Value > Arr[iMid]){
+      iEnd = iMid - 1;
+    }
+    else if (Value < Arr [iMid]){
+      iStart = iMid + 1;
+    }
+  }
+  return bFlag;
+}
+template <class T>
+void ArrayX<T> :: BubbleSort (){
+  T temp;
+  int i  = 0, j = 0;
+  for (i = 0; i < iSize; i++) {
+    for (j = 0; j < iSize-1-i; j++) { /// change over here added -i
+      if (Arr[j] > Arr [j+1]){
+        temp = Arr[j];
+        Arr[j] = Arr[j+1];
+        Arr[j+1] = temp;
+      }
+    }
+  }
+}
 
 
 int main (){
   int iLength = 0,No = 0;
-  bool bRet  = false;
 
   cout<<"No of Elements: ";
   cin >> iLength;
@@ -82,18 +119,11 @@ int main (){
   ArrayX<int> *aobj = new ArrayX<int> (iLength);
 
   aobj->Accept();
+  cout<<"Data before sorting:\n";
   aobj->Display();
 
-  cout<<"Enter Element to search : ";
-  cin >>No;
+  aobj -> BubbleSort();
+  aobj -> Display();
 
-  // bRet  = aobj->LinearSearch(No);
-  bRet = aobj -> BidirectionalSearch(No);
-  if (bRet == true){
-    cout<<"Found"<<endl;
-  }
-  else{
-    cout<<"Not Found\n";
-  }
   return 0;
 }
