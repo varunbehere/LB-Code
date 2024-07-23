@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Program591_StringAdvanced_CountWords {
+class Program593_StringAdvanced_Splitting {
   public static void main (String args[]){
     Scanner sobj = new Scanner(System.in);
 
@@ -8,12 +8,9 @@ class Program591_StringAdvanced_CountWords {
     String str = sobj.nextLine();
 
     String Arr[] = str.split (" ");
-    int i = 0;
-
     System.out.println("Words of the String: ");
-    for (i = 0; i<Arr.length; i++){
-      System.out.println(Arr[i]);
-    }
+
+    System.out.println("No of Words: " + Arr.length);
   }
 }
 

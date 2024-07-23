@@ -11,8 +11,11 @@ class Program591_StringAdvanced_CountWords {
     int i = 0;
 
     System.out.println("Words of the String: ");
-    for (i = 0; i<Arr.length; i++){
-      System.out.println(Arr[i]);
+    // for (i = 0; i<Arr.length; i++){
+    //   System.out.println(Arr[i]);
+    // }
+    for (String s : Arr){
+      System.out.println(s);
     }
   }
 }
